@@ -9,6 +9,8 @@ const expresiones = {
   mensaje: /^[a-zA-ZÀ-ÿ\s]{1,40}$/, // Letras y espacios, pueden llevar acentos.
 };
 
+const campos = { email: false, nombre: false, telefono: false };
+
 const validarFormulario = (e) => {
   switch (e.target.name) {
     case 'email':
@@ -28,9 +30,11 @@ const validarCampo = (expresion, input, campo) => {
     document.getElementById(`grupo${campo}`).classList.remove('formularioIncorrecto');
     document.getElementById(`grupo${campo}`).classList.add('formularioCorrecto');
     document.querySelector(`#grupo${campo} .formulario__input-error`).classList.remove('formulario__input-error-activo');
+    campos[campo] = true;
   } else {
     document.getElementById(`grupo${campo}`).classList.add('formularioIncorrecto');
     document.querySelector(`#grupo${campo} .formulario__input-error`).classList.add('formulario__input-error-activo');
+    campos[campo] = false;
   }
 };
 
@@ -46,4 +50,8 @@ textArea.forEach((textArea) => {
 
 formulario.addEventListener('submit', (e) => {
   e.preventDefault();
+
+  if (campos.email && campos.nombre && campos.telefono) {
+    formulario.reset();
+  }
 });
