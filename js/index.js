@@ -1,10 +1,9 @@
 /* Recupera LocalStorage, si no hay nada devuelve el array vacio */
-let ticketComprado =
-  JSON.parse(localStorage.getItem("productosAgregadosJSON")) || [];
+let ticketComprado = JSON.parse(localStorage.getItem('productosAgregadosJSON')) || [];
 
 /* Muestra los recitales a los accedera */
 function renderCarrito() {
-  let htmlSelect = "";
+  let htmlSelect = '';
   for (let i = 0; i < ticketComprado.length; i++) {
     htmlSelect += `<div class="card my-2">
               <div class="row g-0">
@@ -33,14 +32,14 @@ function renderCarrito() {
               </div>
             </div>`;
   }
-  document.getElementById("cardJs").innerHTML = htmlSelect;
+  document.getElementById('cardJs').innerHTML = htmlSelect;
 }
 renderCarrito();
 
 /* Guarda carrito en LocalStorage */
 let saveToLocalStorage = () => {
   let storageJSON = JSON.stringify(ticketComprado);
-  localStorage.setItem("productosAgregadosJSON", storageJSON);
+  localStorage.setItem('productosAgregadosJSON', storageJSON);
 };
 
 class Ticket {
@@ -57,47 +56,46 @@ class Ticket {
 
 const ticket1 = new Ticket(
   1,
-  "Bersuit Vergarabat",
-  "Presentando su gira 2022 se presenta el 4 de Junio a las 16:00 Hs con un show único e irrepetible.",
-  "Club All-Boys",
+  'Bersuit Vergarabat',
+  'Presentando su gira 2022 se presenta el 4 de Junio a las 16:00 Hs con un show único e irrepetible.',
+  'Club All-Boys',
   2900,
   300,
-  "img/recital1.jpg"
+  'img/recital1.jpg'
 );
 const ticket2 = new Ticket(
   2,
-  "DIVIDIDOS",
-  "Vuelve al Club Estudiantes por 5ta vez el próximo 27 de junio con un show NO APTO PARA MENORES DE 7 AÑOS",
-  "Club Estudiante",
+  'DIVIDIDOS',
+  'Vuelve al Club Estudiantes por 5ta vez el próximo 27 de junio con un show NO APTO PARA MENORES DE 7 AÑOS',
+  'Club Estudiante',
   5000,
   100,
-  "img/recital2.jpg"
+  'img/recital2.jpg'
 );
 const ticket3 = new Ticket(
   3,
-  "No te va gustar",
-  "No Te Va Gustar se presentan en el Microestadio Municipal el próximo 10 de agosto a las 20hs con bandas soporte.",
-  "Microestadio Municipal",
+  'No te va gustar',
+  'No Te Va Gustar se presentan en el Microestadio Municipal el próximo 10 de agosto a las 20hs con bandas soporte.',
+  'Microestadio Municipal',
   1500,
   400,
-  "img/recital3.jpg"
+  'img/recital3.jpg'
 );
 const ticket4 = new Ticket(
   4,
-  "Celia Cruz",
-  "Por primera vez en Santa Rosa. A días de arrancar la caravana de 10 Gran Rex agotados y con un recorrido de punta a punta por el país.",
-  "Club Estudiante",
+  'Celia Cruz',
+  'Por primera vez en Santa Rosa. A días de arrancar la caravana de 10 Gran Rex agotados y con un recorrido de punta a punta por el país.',
+  'Club Estudiante',
   1000,
   200,
-  "img/recital6.jpg"
+  'img/recital6.jpg'
 );
 
-const entradas = [];
-entradas.push(ticket1, ticket2, ticket3, ticket4);
+const entradas = [ticket1, ticket2, ticket3, ticket4];
 
 /* Muestra todos los recitales */
 function renderRecitalesTodos() {
-  let htmlTodos = "";
+  let htmlTodos = '';
   for (let i = 0; i < entradas.length; i++) {
     htmlTodos += `<div class="card my-2">
                     <div class="row g-0">
@@ -127,7 +125,7 @@ function renderRecitalesTodos() {
                   </div>`;
   }
 
-  document.getElementById("cardJsTodos").innerHTML = htmlTodos;
+  document.getElementById('cardJsTodos').innerHTML = htmlTodos;
 }
 renderRecitalesTodos();
 
