@@ -12,30 +12,25 @@ const expresiones = {
 const validarFormulario = (e) => {
   switch (e.target.name) {
     case 'email':
-      if (expresiones.email.test(e.target.value)) {
-        document.getElementById('grupoEmail').classList.remove('formularioIncorrecto');
-        document.getElementById('grupoEmail').classList.add('formularioCorrecto');
-      } else {
-        document.getElementById('grupoEmail').classList.add('formularioIncorrecto');
-      }
+      validarCampo(expresiones.email, e.target, 'Email');
       break;
     case 'nombre':
-      if (expresiones.nombre.test(e.target.value)) {
-        document.getElementById('grupoNombre').classList.remove('formularioIncorrecto');
-        document.getElementById('grupoNombre').classList.add('formularioCorrecto');
-      } else {
-        document.getElementById('grupoNombre').classList.add('formularioIncorrecto');
-      }
+      validarCampo(expresiones.nombre, e.target, 'Nombre');
       break;
     case 'telefono':
-      if (expresiones.telefono.test(e.target.value)) {
-        document.getElementById('grupoTelefono').classList.remove('formularioIncorrecto');
-        document.getElementById('grupoTelefono').classList.add('formularioCorrecto');
-      } else {
-        document.getElementById('grupoTelefono').classList.add('formularioIncorrecto');
-        document.getElementById('grupoTelefono').classList.remove('formularioCorrecto');
-      }
+      validarCampo(expresiones.telefono, e.target, 'Telefono');
       break;
+  }
+};
+
+const validarCampo = (expresion, input, campo) => {
+  if (expresion.test(input.value)) {
+    document.getElementById(`grupo${campo}`).classList.remove('formularioIncorrecto');
+    document.getElementById(`grupo${campo}`).classList.add('formularioCorrecto');
+    document.querySelector(`#grupo${campo} .formulario__input-error`).classList.remove('formulario__input-error-activo');
+  } else {
+    document.getElementById(`grupo${campo}`).classList.add('formularioIncorrecto');
+    document.querySelector(`#grupo${campo} .formulario__input-error`).classList.add('formulario__input-error-activo');
   }
 };
 
