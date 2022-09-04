@@ -43,7 +43,7 @@ let saveToLocalStorage = () => {
 };
 
 class Ticket {
-  constructor(id, nombre, info, lugar, precio, stock, img) {
+  constructor(id, nombre, info, lugar, precio, stock, img, categoria) {
     this.id = id;
     this.nombre = nombre;
     this.info = info;
@@ -51,6 +51,7 @@ class Ticket {
     this.precio = precio;
     this.stock = stock;
     this.img = img;
+    this.categoria = categoria;
   }
 }
 
@@ -61,7 +62,8 @@ const ticket1 = new Ticket(
   'Club All-Boys',
   2900,
   300,
-  'img/recital1.jpg'
+  'img/recital1.jpg',
+  'rock'
 );
 const ticket2 = new Ticket(
   2,
@@ -70,7 +72,8 @@ const ticket2 = new Ticket(
   'Club Estudiante',
   5000,
   100,
-  'img/recital2.jpg'
+  'img/recital2.jpg',
+  'rock'
 );
 const ticket3 = new Ticket(
   3,
@@ -79,7 +82,8 @@ const ticket3 = new Ticket(
   'Microestadio Municipal',
   1500,
   400,
-  'img/recital3.jpg'
+  'img/recital3.jpg',
+  'rock'
 );
 const ticket4 = new Ticket(
   4,
@@ -88,7 +92,8 @@ const ticket4 = new Ticket(
   'Club Estudiante',
   1000,
   200,
-  'img/recital6.jpg'
+  'img/recital6.jpg',
+  'cumbia'
 );
 
 const entradas = [ticket1, ticket2, ticket3, ticket4];
@@ -143,3 +148,5 @@ function eliminarCart(id) {
   renderCarrito();
   saveToLocalStorage();
 }
+
+/* Spread */

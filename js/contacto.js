@@ -53,7 +53,6 @@ formulario.addEventListener('submit', (e) => {
 
   if (campos.email && campos.nombre && campos.telefono) {
     formulario.reset();
-    console.log('Funca');
     /* Swal.fire({
       position: 'center',
       icon: 'success',
