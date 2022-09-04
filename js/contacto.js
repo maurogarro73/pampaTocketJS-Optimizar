@@ -1,6 +1,6 @@
 const formulario = document.getElementById('formulario');
 const input = document.querySelectorAll('#formulario input');
-const textArea = document.querySelectorAll('#formulario textarea');
+/* const textArea = document.querySelectorAll('#formulario textarea'); */
 
 const expresiones = {
   nombre: /^[a-zA-ZÀ-ÿ\s]{1,40}$/, // Letras y espacios, pueden llevar acentos.
@@ -9,7 +9,7 @@ const expresiones = {
   mensaje: /^[a-zA-ZÀ-ÿ\s]{1,40}$/, // Letras y espacios, pueden llevar acentos.
 };
 
-const campos = { email: false, nombre: false, telefono: false };
+let campos = { email: false, nombre: false, telefono: false };
 
 const validarFormulario = (e) => {
   switch (e.target.name) {
@@ -43,15 +43,25 @@ input.forEach((input) => {
   input.addEventListener('blur', validarFormulario);
 });
 
-textArea.forEach((textArea) => {
+/* textArea.forEach((textArea) => {
   textArea.addEventListener('keyup', validarFormulario);
   textArea.addEventListener('blur', validarFormulario);
-});
+}); */
 
 formulario.addEventListener('submit', (e) => {
   e.preventDefault();
 
   if (campos.email && campos.nombre && campos.telefono) {
     formulario.reset();
+    console.log('Funca');
+    /* Swal.fire({
+      position: 'center',
+      icon: 'success',
+      title: 'Your work has been saved',
+      showConfirmButton: false,
+      timer: 1500,
+    }); */
+  } else {
+    console.log(campos.email);
   }
 });
