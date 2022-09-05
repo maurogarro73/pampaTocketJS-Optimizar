@@ -96,7 +96,20 @@ const ticket4 = new Ticket(
   'cumbia'
 );
 
-const entradas = [ticket1, ticket2, ticket3, ticket4];
+let entradas = [ticket1, ticket2, ticket3, ticket4];
+
+/* filtrar por categorias */
+const copiaEntradas = [...entradas];
+
+function setFiltroCat(cat) {
+  if (cat == 'rock' || cat == 'cumbia') {
+    entradas = [...copiaEntradas];
+    entradas = entradas.filter((item) => item.categoria == cat);
+  } else {
+    entradas = [...copiaEntradas];
+  }
+  renderRecitalesTodos();
+}
 
 /* Muestra todos los recitales */
 function renderRecitalesTodos() {
